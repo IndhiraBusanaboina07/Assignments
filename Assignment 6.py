@@ -16,6 +16,10 @@ class LinkedList:
             while current.next:
                 current = current.next
             current.next = new_node
+    def isValidPos(self, pos):
+        
+        return (pos<=self.size)
+                   
 def test():
  linked_list_1 = LinkedList()
  linked_list_2 = LinkedList()
