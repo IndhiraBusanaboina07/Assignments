@@ -19,11 +19,11 @@ class LinkedList:
     def isValidPos(self, pos):
         
         return (pos<=self.size)
-    def insert(self, val, pos):
+    def insert(self, data, pos):
         
         
         if(self.size == 0 and pos == 1):
-            new_node = Node(val)
+            new_node = Node(data)
             self.head = new_node
         
         print(self.isValidPos(pos))
@@ -42,7 +42,7 @@ class LinkedList:
                 ref = ref.next
                 count += 1
             
-            new_node = Node(val)
+            new_node = Node(data)
             new_node.next = ref.next
             ref.next = new_node
         
