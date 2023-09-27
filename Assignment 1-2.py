@@ -10,9 +10,7 @@ if y>x:
 
     x=y
 
-    y=temp
-
-   
+    y=temp  
 
 for a in range(total_inputs-2):
 
