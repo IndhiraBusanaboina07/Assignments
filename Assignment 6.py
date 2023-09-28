@@ -1,58 +1,126 @@
 class Node:
-    def _init_(self, data):
+    def __init__(self,data):
         self.data = data
         self.next = None
 
 class LinkedList:
-    def _init_(self):
+    def __init__(self):
         self.head = None
+        self.tail = None
+        self.size = 0
 
-    def append(self, data):
-        new_node = Node(data)
-        if not self.head:
-            self.head = new_node
+    def append(self,data):
+        newN = Node(data)
+        if self.head==None:
+            self.tail = newN
+            self.head = newN
         else:
-            current = self.head
-            while current.next:
-                current = current.next
-            current.next = new_node
-    def isValidPos(self, pos):
-        
-        return (pos<=self.size)
-    def insert(self, data, pos):
-        
-        
-        if(self.size == 0 and pos == 1):
-            new_node = Node(data)
-            self.head = new_node
-        
-        print(self.isValidPos(pos))
-        elif(isValidPos(pos) == False):
-            print(self.isValidPos(pos))
-            print("checked")
-            return "Invalid Position"
-        
-        else: 
-            
-            
-            ref = self.head
-            count = 1
-            
-            while(count != pos):
-                ref = ref.next
-                count += 1
-            
-            new_node = Node(data)
-            new_node.next = ref.next
-            ref.next = new_node
-        
-        self.size += 1    
-                   
-def test():
- linked_list_1 = LinkedList()
- linked_list_2 = LinkedList()
+            self.tail.next = newN
+            self.tail = newN
+        self.size+=1
 
- linked_list_1.append(1)
- linked_list_1.append(2)
- linked_list_2.append(3)
- linked_list_2.append(4)
+    def insert(self,pos,data):
+        if pos<0 and pos>self.size:
+            print("Invalid position")
+        
+        newN = Node(data)
+        if pos==0:
+             newN.next = self.head
+             self.head = newN
+             return
+        
+        cur = self.head
+        prev = None
+        count = 0
+        while count<pos and cur:
+            prev = cur
+            cur = cur.next
+            count+=1
+        if count==pos:
+            prev.next=newN
+            newN.next=cur
+        else:
+            print('Position out of range')
+        
+        self.size +=1
+
+    def remove(self,pos):
+        if pos<0 or pos>=self.size:
+            print("Invalid position")
+            return None
+        
+        if pos==0:
+             rem_data = self.head.data
+             self.head = self.head.next
+             self.size-=1
+             return rem_data
+        
+        cur = self.head
+        prev = None
+        count = 0
+
+        while count<pos and cur:
+            prev = cur
+            cur = cur.next
+            count+=1
+
+        if count==pos:
+            rem_data = cur.data
+            prev.next = cur.next
+
+            if count == self.size-1:
+                self.tail = prev
+            self.size-=1
+            return rem_data
+            
+        else:
+            print('Position out of range')
+            return None
+        
+        
+
+    def get(self,pos):
+        cur = self.head
+        for i in range(pos-1):
+            cur = cur.next
+        return cur.next.data
+    
+    def set(self,pos,data):
+        cur = self.head
+        for i in range(pos-1):
+            cur = cur.next
+        cur.data = data
+
+    def sizeofL(self):
+        return self.size
+    
+    def info(self):
+        cur = self.head
+        for i in range(self.size-1):
+            print(f'{cur.data}->',end="")
+            cur = cur.next
+        print("None")
+
+    def remove(self,pos):
+        if pos<0 and pos>self.size:
+            print("Invalid position")
+                  
+    
+    def clear(self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+            
+
+            
+SLL=LinkedList()
+
+SLL.append(4)
+SLL.append(8)
+SLL.append(9)
+SLL.append(10)
+SLL.insert(6,5)
+SLL.info()
+SLL.remove(0)
+
+SLL.info()
