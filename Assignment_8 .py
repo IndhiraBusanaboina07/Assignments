@@ -53,39 +53,4 @@ class LinkedList:
         node = list.node_at_pos(index)
         node._value=value
         
-    def traverse_till_index(list, index):
-        y=list._first
-        for i in range(index):
-            y=y._next
-            if y==None:
-                return
-        return y
-
-    def insert(list, index, value):
-        
-        y = list.traverse_till_index(index)
-        x=y._previous
-
-        new_node=Node(value,previous=x,next=y)
-        
-        if x:
-            x._next=new_node
-        else:
-            list._first=new_node
-
-        y._previous=new_node
-        
-    def remove(list, index):
-        
-        n = list.traverse_till_index(index)
-        x= n._previous
-        y= n._next
-
-        if x:
-            x._next=y
-        else:
-            list._first=y
-
-        if y:
-            y._previous=x
-        return n._value
+  
