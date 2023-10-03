@@ -28,13 +28,5 @@ class LinkedList:
         str+=")"
         return str
 
-    def size(self):
-        c=0
-        n=self._first
-        while n:
-            c+=1
-            n=n._next
-        return c
-    
   
   
