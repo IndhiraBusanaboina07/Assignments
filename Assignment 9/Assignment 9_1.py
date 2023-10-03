@@ -66,25 +66,26 @@ def isPrime(n):
         return 0
 
 def findPrime(list):
-    current = list._first
+    initial = list._first
     previous = list._first
-    while current._next:
-        previous = current           
-        current = current._next      
-        data = current._value
+    while initial._next:
+        previous = initial           
+        initial = initial._next      
+        data = initial._value
         if(isPrime(data) and data!=1 and data!=0):
             print(data)
 def isEven(list):
-    current = list._first
+    initial = list._first
     previous = list._first
-    while current:
-        data = current._value
+    while initial:
+        data = initial._value
         if data%2==0:
             print(f'{data}',end="\t")
-        previous = current            
-        current = current._next                
+        previous = initial            
+        initial = initial._next                
 l1 = LinkedList()
 for i in range(10):
     l1.append(i)
 findPrime(l1)
+isEven(l1)
        
