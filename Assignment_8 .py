@@ -9,9 +9,9 @@ class LinkedList:
         self._first=None
 
     def append(self, value):
-        if self._first==None: # list is empty
+        if self._first==None: 
             self._first=Node(value)
-        else: # add to the end of a non-empty list
+        else:
             n=self._first
             while n._next:
                 n=n._next
