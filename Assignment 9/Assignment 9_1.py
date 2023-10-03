@@ -66,6 +66,7 @@ def isPrime(n):
         return 0
 
 def findPrime(list):
+    print('Prime Numbers in the list')
     initial = list._first
     previous = list._first
     while initial._next:
@@ -75,6 +76,7 @@ def findPrime(list):
         if(isPrime(data) and data!=1 and data!=0):
             print(data)
 def isEven(list):
+    print('Even numbers in the list')
     initial = list._first
     previous = list._first
     while initial:
