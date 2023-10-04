@@ -61,7 +61,7 @@ s=Book_store()
 s.add_book(book1)
 s.add_book(book2)
 s.add_book(book3)
-s.add_book(book4)
+
 s.info()
 
 s.find_book_by_author("Bob")
