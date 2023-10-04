@@ -10,16 +10,7 @@ class LinkedList:
         self.tail = None
         self.nodebeforetail = None
 
-    def insert_at_start(self,data):
-        newnode=Node(data)
-        self.size+=1
-        if not self.head:
-            self.head=newnode
-        else:
-            newnode.nextnode=self.head
-            self.head=newnode
-
-    
+   
         
 ll = LinkedList()
 ll.append(10)
